@@ -1,23 +1,3 @@
-<!--<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body id="app">
-		{{message}}
-	</body>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-		<script>
-	 var app = new Vue({
-     el: '#app',
-     data: {
-     message: 'Hello Vue!'
-    }
-   })
-	</script>
-</html>-->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,6 +9,61 @@
      	 <div id="app">
   				{{ message }}
 		</div>
+		<div id="app2">
+			<span v-bind:title="message">
+				鼠标悬停几秒！
+			</span>
+		</div>
+		<div id="app3">
+			<p v-if="seen">now you see me!</p>
+		</div>
+		<div id="app-4">
+  			<ol>
+    			<li v-for="todo in todos">
+      				{{ todo.text }}
+    			</li>
+ 		   </ol>
+		</div>
+		<div id='app5'>
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">逆转消息</button>
+		</div>
+		<!--v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定。-->
+		<div id='app6'>
+			<p>{{message}}</p>
+			<input v-model="message" />
+		</div>
+		<div id='app7'>
+			<ol>
+				<todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item.id'></todo-item>
+			</ol>
+		</div>
+		<div id="event_listener">
+			<button v-on:click="counter += 1">Add 1</button>
+			<p>The button above has been clicked {{ counter }} times.</p>
+		</div>
+		
+		
+		
+		<!--for 与 组件-->
+		<!--<div id="todo-list-example">
+			<form v-on:submit.prevent="addNewTodo">
+				<label for="new-todo">Add a dodo</label>
+				<input v-model="newTodoText"
+					 id="new-todo"
+					 placeholder="E.g. Feed the cat"/>
+			    <button>Add</button>
+			</form>
+			<ul>
+				<li
+					is="todo-item"
+					v-for="(todo,index) in todos"
+					v-bind:key="todo.id"
+					v-bind:title:"todo.title"
+					v-on:remove="todos.splice(index, 1)">
+				</li>
+			</ul>
+		</div>-->
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="js/app.js"></script>
